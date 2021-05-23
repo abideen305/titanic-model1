@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>GIZ DS CLASS</title>
+
+  <link rel="stylesheet"  href="{{ url_for('static', filename='w3.css') }}">
+ <style type="text/css">
+
+.mySlides {display:none;}
+</style>
+</head>
+<body>
+<div class='w3-padding w3-teal w3-center'><h1>GIZ Titanic Prediction Model</h1></div>
+<p> This is a model built during GIZ free Data Science class: April - May, 2021 led by <a href="github.com/abideen305">Abideen Muhammed</a> </p>
+  <div class="w3-container">
+  <div class="w3-padding-18 w3-content w3-section w3-threequarter">
+  <img class="mySlides" src="{{url_for('static', filename='a1.jpg')}}" style="width:100%;height: 400px;">
+  <img class="mySlides" src="{{url_for('static', filename='a2.jpg')}}" style="width:100%;height: 400px;">
+  <img class="mySlides" src="{{url_for('static', filename='a1.jpg')}}" style="width:100%;height: 400px;">
+  <img class="mySlides" src="{{url_for('static', filename='a2.jpg')}}" style="width:100%;height: 400px;">
+</div>
+<div class="w3-container w3-padding-24 w3-quarter">
+<div class="w3-card-4 w3-padding-32" style="width:100%;height: 100%;" >
+    <header class="w3-container  w3-center">
+      <h5 class="w3-center">Abideen Muhammed A</h5>
+    </header>
+    <div class="w3-container">
+
+      <hr>
+      <img src="{{url_for('static', filename='a1.jpg')}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+<!--      <p>Founder of Magtech Dihub,Data scientist,and Web developer</p><br>-->
+    </div>
+  </div>
+</div>
+</div>
+<div class="w3-container">
+  <p>Note: 1 represents females while 0 represents males</p>
+  <form class="w3-container w3-card-2" action="{{ url_for('predict')}}"method="POST" style="width: 100%">
+  <h2 class="w3-text-blue w3-center w3-text-teal" >Input Form</h2>
+  <p>
+  <label class="w3-text-teal"><b>Pclass</b></label>
+  <input id="id1" class="w3-input w3-border" name="Pclass" placeholder="Pclass" required="required" type="number" ></p>
+  <p>
+  <label class="w3-text-teal"><b>Sex</b></label>
+  <input id="id1" class="w3-input w3-border" name="Sex" type="number" placeholder="1:female 0:male" required="required" max="1" min="0"></p>
+  <label class="w3-text-teal"><b>Age</b></label>
+  <input id="id1" class="w3-input w3-border" name="Age" type="number" placeholder="Age" required="required"></p>
+  <p>
+  <label class="w3-text-teal"><b>SibSp</b></label>
+  <input id="id1" class="w3-input w3-border" name="SibSp" placeholder="SibSp" type="number" required="required"></p>
+  <label class="w3-text-teal"><b>Parch</b></label>
+  <input id="id1" class="w3-input w3-border" name="Parch" placeholder="Parch" type="number" required="required"></p>
+  <p>
+  <label class="w3-text-teal"><b>Fare</b></label>
+  <input id="id1" class="w3-input w3-border" name="Fare" placeholder="Fare" type="number" required="required"></p>
+   <label class="w3-text-teal"><b>Fare</b></label>
+  <input id="id1" class="w3-input w3-border" name="Fare" placeholder="Fare" type="number" required="required"></p>
+   <label class="w3-text-teal"><b>Fare</b></label>
+  <input id="id1" class="w3-input w3-border" name="Fare" placeholder="Fare" type="number" required="required"></p>
+
+
+
+
+  <button onclick="myFunction()" type="submit" class="btn btn-primary btn-block btn-large w3-text-teal w3-border-teal" style="width:100%;">Predict</button>
+</form>
+</div>
+<br>
+
+  <div class="w3-card-4 w3-teal" >
+  <h2>{{ prediction_text }}</h2></div>
+</div>
+<script>
+var myIndex = 0;
+carousel();
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+
+
+
+}
+</script>
+</body>
+</html>
