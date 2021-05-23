@@ -10,7 +10,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sn
 get_ipython().run_line_magic('matplotlib', 'inline')
-#this is for Back End of the matplotlib for better visualization
+# this is for Back End of the matplotlib for better visualization
 
 
 # In[2]:
@@ -30,13 +30,13 @@ titanic_train.head()
 # In[4]:
 
 
-titanic_test
+print(titanic_test)
 
 
 # In[5]:
 
 
-#printing their shapes
+# printing their shapes
 
 print("The shape for train is {}.\n The shape for test is {}.".format(titanic_train.shape, titanic_test.shape))
 
@@ -80,7 +80,7 @@ titanic_train.info()
 # In[12]:
 
 
-df_drop = titanic_train.drop(columns=["name", "fare", "passenger_id", "body", "home.dest", "ticket"], axis = 1)
+df_drop = titanic_train.drop(columns=["name", "fare", "passenger_id", "body", "home.dest", "ticket"], axis=1)
 
 
 # In[13]:
